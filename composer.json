@@ -1,0 +1,26 @@
+{
+    "name": "xuilong/dada",
+    "description":"达达配送 dada 达达",
+    "keywords":[
+        "dada",
+        "达达",
+        "达达配送"
+    ],
+    "type": "library",
+    "require":{
+        "php":">=7.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "youlong",
+            "email": "123456.gd@163.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Dada\\":"src/"
+        }
+    }
+}
