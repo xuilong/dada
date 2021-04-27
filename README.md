@@ -148,7 +148,7 @@ result业务参数
     "deliverFee"	=> 12,
     "insuranceFee"	=> 0,
     "tips"			=> 0,
-  }
+  ]
 ]
 ```
 
@@ -257,7 +257,7 @@ result业务参数
     "deliverFee"	=> 12,
     "insuranceFee"	=> 0,
     "tips"			=> 0,
-  }
+  ]
 ]
 ```
 
@@ -373,7 +373,7 @@ result业务参数
     "deliverFee"	=> 12,
     "insuranceFee"	=> 0,
     "tips"			=> 0,
-  }
+  ]
 ]
 ```
 
@@ -449,14 +449,7 @@ result业务参数
 #### 1.4.3、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $addTip = new AddTip();
-    $addTip->setOrderId('20210416111032767383');
-    $addTip->setCityCode('2068');
-    $addTip->setTips(1.5);
-    $req = new DadaRequestClient($data, $addTip);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $addTip = new AddTip();    $addTip->setOrderId('20210416111032767383');    $addTip->setCityCode('2068');    $addTip->setTips(1.5);    $req = new DadaRequestClient($data, $addTip);    var_dump($req->makeRequest());
 ```
 
 ### 1.5、订单回调
@@ -525,12 +518,7 @@ result业务参数
 #### 1.6.4、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $orderDetails =new OrderDetails();
-    $orderDetails->setOrderId('20210416111032767383');
-    $req = new DadaRequestClient($data, $orderDetails);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $orderDetails =new OrderDetails();    $orderDetails->setOrderId('20210416111032767383');    $req = new DadaRequestClient($data, $orderDetails);    var_dump($req->makeRequest());
 ```
 
 ### 1.7、取消订单
@@ -592,26 +580,13 @@ result业务参数
 #### 1.7.5、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $cancelOrder = new CancelOrder();
-    $cancelOrder->setOrderId('20210416111032767384');
-    $cancelOrder->setCancelReasonId(4);
-    $req = new DadaRequestClient($data, $cancelOrder);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $cancelOrder = new CancelOrder();    $cancelOrder->setOrderId('20210416111032767384');    $cancelOrder->setCancelReasonId(4);    $req = new DadaRequestClient($data, $cancelOrder);    var_dump($req->makeRequest());
 ```
 
 成功返回值：
 
 ```php
-[
-  "status" => "success",
-  "code" => 0,
-  "msg" => "成功",
-  "result" => [
-    "deduct_fee" => 0
-  ]
-]
+[  "status" => "success",  "code" => 0,  "msg" => "成功",  "result" => [    "deduct_fee" => 0  ]]
 ```
 
 ### 1.8、追加订单
@@ -647,35 +622,19 @@ result业务参数
 正确的响应结果
 
 ```php
-[
-    "status" => "success",
-    "code" => 0,
-    "msg" => "成功"
-]
+[    "status" => "success",    "code" => 0,    "msg" => "成功"]
 ```
 
 失败的响应结果
 
 ```php
-[
-    "status" => "fail",
-    "errorCode" => 2070,
-    "code" => 2070,
-    "msg" => "指派的订单已被接单"
-]
+[    "status" => "fail",    "errorCode" => 2070,    "code" => 2070,    "msg" => "指派的订单已被接单"]
 ```
 
 #### 1.8.4、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $appendOrder = new AppendOrder();
-    $appendOrder->setOrderId('20210416111032767384');
-    $appendOrder->setTransporterId('666');
-    $appendOrder->setShopNo('11047059');
-    $req = new DadaRequestClient($data, $appendOrder);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $appendOrder = new AppendOrder();    $appendOrder->setOrderId('20210416111032767384');    $appendOrder->setTransporterId('666');    $appendOrder->setShopNo('11047059');    $req = new DadaRequestClient($data, $appendOrder);    var_dump($req->makeRequest());
 ```
 
 ### 1.9、取消追加订单
@@ -707,33 +666,19 @@ result业务参数
 正确的响应结果
 
 ```php
-[
-    "status" => "success",
-    "code" => 0,
-    "msg" => "成功"
-]
+[    "status" => "success",    "code" => 0,    "msg" => "成功"]
 ```
 
 失败的响应结果
 
 ```php
-[
-    "status" => "fail",
-    "errorCode" => 2070,
-    "code" => 2070,
-    "msg" => "指派的订单已被接单"
-]
+[    "status" => "fail",    "errorCode" => 2070,    "code" => 2070,    "msg" => "指派的订单已被接单"]
 ```
 
 #### 1.9.4、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $cancelAppendOrder = new CancelAppendOrder();
-    $cancelAppendOrder->setOrderId('20210416111032767384');
-    $req = new DadaRequestClient($data, $cancelAppendOrder);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $cancelAppendOrder = new CancelAppendOrder();    $cancelAppendOrder->setOrderId('20210416111032767384');    $req = new DadaRequestClient($data, $cancelAppendOrder);    var_dump($req->makeRequest());
 ```
 
 ### 1.10、查询追加配送员
@@ -779,30 +724,13 @@ result业务参数：
 正确的响应结果
 
 ```php
-[
-  "status" => "success",
-  "code" => 0,
-  "msg" => "成功",
-  "result" => [
-    [
-      "phone" => "13546670420",
-      "name" => "达达骑手",
-      "id" => 666,
-      "city_id" => 1
-    ]
-  ]
-]
+[  "status" => "success",  "code" => 0,  "msg" => "成功",  "result" => [    [      "phone" => "13546670420",      "name" => "达达骑手",      "id" => 666,      "city_id" => 1    ]  ]]
 ```
 
 #### 1.10.4、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $appendTransporter = new AppendTransporter();
-    $appendTransporter->setShopNo('11047059');
-    $req = new DadaRequestClient($data, $appendTransporter);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $appendTransporter = new AppendTransporter();    $appendTransporter->setShopNo('11047059');    $req = new DadaRequestClient($data, $appendTransporter);    var_dump($req->makeRequest());
 ```
 
 ### 1.11、商家投诉达达
@@ -833,34 +761,19 @@ result业务参数：
 正确的响应结果
 
 ```php
-[
-   "status" => "success",
-   "code" => 0,
-   "msg" => "成功",
-]
+[   "status" => "success",   "code" => 0,   "msg" => "成功",]
 ```
 
 失败的响应结果
 
 ```php
-[
-   "status" => "fail",
-   "code" => 2134,
-   "errorCode" => 2134,
-   "msg" => "规定时间送达，投诉无效",
-]
+[   "status" => "fail",   "code" => 2134,   "errorCode" => 2134,   "msg" => "规定时间送达，投诉无效",]
 ```
 
 #### 1.11.4、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $complaintDada = new ComplaintDada();
-    $complaintDada->setOrderId('20210416111032767384');
-    $complaintDada->setReasonId('4');
-    $req = new DadaRequestClient($data, $complaintDada);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $complaintDada = new ComplaintDada();    $complaintDada->setOrderId('20210416111032767384');    $complaintDada->setReasonId('4');    $req = new DadaRequestClient($data, $complaintDada);    var_dump($req->makeRequest());
 ```
 
 
@@ -891,12 +804,7 @@ result业务参数：
 #### 1.12.4、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $confirmAbnormalGoods = new ConfirmAbnormalGoods();
-    $confirmAbnormalGoods->setOrderId('20210416111032767384');
-    $req = new DadaRequestClient($data, $confirmAbnormalGoods);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $confirmAbnormalGoods = new ConfirmAbnormalGoods();    $confirmAbnormalGoods->setOrderId('20210416111032767384');    $req = new DadaRequestClient($data, $confirmAbnormalGoods);    var_dump($req->makeRequest());
 ```
 
 ## 2、商户管理
@@ -935,11 +843,7 @@ result业务参数：
 #### 2.1.5、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $cityCode = new CityCode();
-    $req = new DadaRequestClient($data, $cityCode);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $cityCode = new CityCode();    $req = new DadaRequestClient($data, $cityCode);    var_dump($req->makeRequest());
 ```
 
 ### 2.2、注册商户
@@ -975,29 +879,13 @@ result业务参数：
 正确响应的结果
 
 ```php
-[
-    "status" => "success",
-    "result" => 73767,
-    "code" => 0,
-    "msg" => "成功"
-]
+[    "status" => "success",    "result" => 73767,    "code" => 0,    "msg" => "成功"]
 ```
 
 #### 2.2.4、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $merchantAdd = new MerchantAdd();
-    $merchantAdd->setMobile('13800138000');
-    $merchantAdd->setCityName('上海');
-    $merchantAdd->setEnterpriseName('优雅谷');
-    $merchantAdd->setEnterpriseDddress('上海街');
-    $merchantAdd->setContactName('张三1');
-    $merchantAdd->setContactPhone('13800138000');
-    $merchantAdd->setEmail('123456.gd@163.com');
-    $req = new DadaRequestClient($data, $merchantAdd);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $merchantAdd = new MerchantAdd();    $merchantAdd->setMobile('13800138000');    $merchantAdd->setCityName('上海');    $merchantAdd->setEnterpriseName('优雅谷');    $merchantAdd->setEnterpriseDddress('上海街');    $merchantAdd->setContactName('张三1');    $merchantAdd->setContactPhone('13800138000');    $merchantAdd->setEmail('123456.gd@163.com');    $req = new DadaRequestClient($data, $merchantAdd);    var_dump($req->makeRequest());
 ```
 
 注：把 source_id 的值设置为空
@@ -1051,20 +939,7 @@ result业务参数：
 #### 2.3.5、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $shopAdd = new ShopAdd();
-    $shopAdd->setStationName('优雅谷');
-    $shopAdd->setBusiness(1);
-    $shopAdd->setCityName('上海');
-    $shopAdd->setAreaName('浦东新区');
-    $shopAdd->setStationAddress('浦东新区');
-    $shopAdd->setLng(113.403081);
-    $shopAdd->setLat(22.51043);
-    $shopAdd->setContactName('游龙');
-    $shopAdd->setPhone('13800138000');
-    $req = new DadaRequestClient($data, $shopAdd);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $shopAdd = new ShopAdd();    $shopAdd->setStationName('优雅谷');    $shopAdd->setBusiness(1);    $shopAdd->setCityName('上海');    $shopAdd->setAreaName('浦东新区');    $shopAdd->setStationAddress('浦东新区');    $shopAdd->setLng(113.403081);    $shopAdd->setLat(22.51043);    $shopAdd->setContactName('游龙');    $shopAdd->setPhone('13800138000');    $req = new DadaRequestClient($data, $shopAdd);    var_dump($req->makeRequest());
 ```
 
 ### 2.4、编辑门店
@@ -1105,42 +980,19 @@ result业务参数：
 正确的响应结果
 
 ```php
-[
-    "status" => "success",
-    "code" => 0,
-    "msg" => "成功"
-]
+[    "status" => "success",    "code" => 0,    "msg" => "成功"]
 ```
 
 失败的响应结果
 
 ```php
-[
-    "status" => "fail",
-    "errorCode" => 2406,
-    "code" => 2406,
-    "msg" => "没有可以更新的参数,请重新核对"
-]
+[    "status" => "fail",    "errorCode" => 2406,    "code" => 2406,    "msg" => "没有可以更新的参数,请重新核对"]
 ```
 
 #### 2.4.4、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $shopUpdate = new ShopUpdate();
-    $shopUpdate->setOriginShopId('shop001');
-    $shopUpdate->setStationName('优雅谷');
-    $shopUpdate->setBusiness(1);
-    $shopUpdate->setCityName('上海');
-    $shopUpdate->setAreaName('浦东新区');
-    $shopUpdate->setStationAddress('浦东新区');
-    $shopUpdate->setLng(113.403081);
-    $shopUpdate->setLat(22.51043);
-    $shopUpdate->setContactName('游龙');
-    $shopUpdate->setPhone('13800138000');
-    $req = new DadaRequestClient($data, $shopUpdate);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $shopUpdate = new ShopUpdate();    $shopUpdate->setOriginShopId('shop001');    $shopUpdate->setStationName('优雅谷');    $shopUpdate->setBusiness(1);    $shopUpdate->setCityName('上海');    $shopUpdate->setAreaName('浦东新区');    $shopUpdate->setStationAddress('浦东新区');    $shopUpdate->setLng(113.403081);    $shopUpdate->setLat(22.51043);    $shopUpdate->setContactName('游龙');    $shopUpdate->setPhone('13800138000');    $req = new DadaRequestClient($data, $shopUpdate);    var_dump($req->makeRequest());
 ```
 
 ### 2.5、门店详情
@@ -1187,12 +1039,7 @@ result业务参数：
 #### 2.5.5、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $shopDetail = new ShopDetail();
-    $shopDetail->setOriginShopId('shop001');
-    $req = new DadaRequestClient($data, $shopDetail);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $shopDetail = new ShopDetail();    $shopDetail->setOriginShopId('shop001');    $req = new DadaRequestClient($data, $shopDetail);    var_dump($req->makeRequest());
 ```
 
 ## 3、消息通知
@@ -1270,17 +1117,7 @@ result业务参数：
 #### 3.2.4、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $messageInform = new MessageInform();
-    $messageInform->setMessageType(1);
-    $messageInform->setMessageBody([
-        'orderId'   => '20210416111032767384', // 消息类型（1：骑士取消订单推送消息）
-        'dadaOrderId'   => '277073797294677', // 达达订单号，选填
-        'isConfirm'   => 1, // 0:不同意，1:表示同意
-    ]);
-    $req = new DadaRequestClient($data, $messageInform);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $messageInform = new MessageInform();    $messageInform->setMessageType(1);    $messageInform->setMessageBody([        'orderId'   => '20210416111032767384', // 消息类型（1：骑士取消订单推送消息）        'dadaOrderId'   => '277073797294677', // 达达订单号，选填        'isConfirm'   => 1, // 0:不同意，1:表示同意    ]);    $req = new DadaRequestClient($data, $messageInform);    var_dump($req->makeRequest());
 ```
 
 ### 3.3、骑士取消订单
@@ -1338,24 +1175,13 @@ result业务参数：
 #### 4.1.3、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $recharge = new Recharge();
-    $recharge->setAmount(1);
-    $recharge->setCategory('PC');
-    $req = new DadaRequestClient($data, $recharge);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $recharge = new Recharge();    $recharge->setAmount(1);    $recharge->setCategory('PC');    $req = new DadaRequestClient($data, $recharge);    var_dump($req->makeRequest());
 ```
 
 返回值：
 
 ```php
-[
-  "status" => "success",
-  "code" => 0,
-  "msg" => "成功",
-  "result" => "达达收银台URL地址"
-]
+[  "status" => "success",  "code" => 0,  "msg" => "成功",  "result" => "达达收银台URL地址"]
 ```
 
 ### 4.2、查询账户余额
@@ -1385,25 +1211,11 @@ result业务参数：
 #### 4.2.4、请求案例
 
 ```php
-<?php
-    $data = new Dada();
-    $balanceQuery = new BalanceQuery();
-    $balanceQuery->setCategory(3); // 查询运费账户类型（1：运费账户；2：红包账户，3：所有），默认查询运费账户余额
-    $req = new DadaRequestClient($data, $balanceQuery);
-    var_dump($req->makeRequest());
+<?php    $data = new Dada();    $balanceQuery = new BalanceQuery();    $balanceQuery->setCategory(3); // 查询运费账户类型（1：运费账户；2：红包账户，3：所有），默认查询运费账户余额    $req = new DadaRequestClient($data, $balanceQuery);    var_dump($req->makeRequest());
 ```
 
 返回值
 
 ```php
-[
-  "status" => "success",
-  "code" => 0,
-  "msg" => "成功",
-  ["result"]=> [
-     "deliverBalance" => 9974854.9,
-    "redPacketBalance" => 1000000
-  ]
-]
+[  "status" => "success",  "code" => 0,  "msg" => "成功",  ["result"]=> [     "deliverBalance" => 9974854.9,    "redPacketBalance" => 1000000  ]]
 ```
-
